@@ -1,8 +1,17 @@
 import React from 'react'
+import { useState,useEffect } from 'react';
+export default function App1() {
 
-export default function App1(props) {
-    App1.defaultProps = {name: "cathy", age: 20};
+    const [runs, setRuns] =useState(0);
+    const [wickets, setWickets] =useState(0);
+    console.log("Component loaded");
+    useEffect(() => { 
+      console.log("Better Luck Next Time");
+    },[wickets])
   return (
-    <div>Hello{props.name},you are{props.age}</div>
+    <div>
+      <button onClick={() => setRuns((prevState) => prevState + 1)}>Runs{runs}</button>
+      <button onClick={() => setWickets((prevState) => prevState + 1)}>wickets{wickets}</button>
+    </div>
   );
 }
